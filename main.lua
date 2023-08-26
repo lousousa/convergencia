@@ -7,12 +7,14 @@ require('states/init')
 require('states/splash')
 require('states/title')
 require('states/credits')
-require('states/game')
+require('states/game/puzzle')
+require('states/game/level')
 
 local function handleInput()
   if Input:pressed 'quit' then
     if Gamestate.current().name == 'title'
-      or Gamestate.current().name == 'game'
+      or Gamestate.current().name == 'gamePuzzle'
+      or Gamestate.current().name == 'gameLevel'
     then
       love.event.quit()
     else
@@ -25,7 +27,7 @@ function love.load()
   primaryFontSrc = 'assets/fonts/oswald-regular.ttf'
 
   Gamestate.registerEvents()
-  Gamestate.switch(states.game)
+  Gamestate.switch(states.gameLevel)
 end
 
 function love.update()

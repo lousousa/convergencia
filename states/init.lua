@@ -4,7 +4,10 @@ states = {
     name = 'title'
   },
   credits = {},
-  game = {
-    name = 'game'
+  gamePuzzle = {
+    name = 'gamePuzzle'
+  },
+  gameLevel = {
+    name = 'gameLevel'
   }
 }

@@ -57,7 +57,7 @@ function states.title:enter()
 
   titleActions = {
     function()
-      Gamestate.switch(states.game)
+      Gamestate.switch(states.gamePuzzle)
     end,
     function()
       Gamestate.switch(states.credits)

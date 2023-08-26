@@ -1,5 +1,4 @@
 require 'src/ui/slots'
-require 'src/ui/slots-thumbnails'
 require 'src/ui/slots-select'
 require 'src/ui/slots-instructions'
 
@@ -21,20 +20,18 @@ local function handleInput()
   end
 end
 
-function states.game:enter()
+function states.gamePuzzle:enter()
   slots = Slots:new{}
-  slotsThumbnails = SlotsThumbnails:new{}
   slotsSelect = SlotsSelect:new{}
   slotsInstructions = SlotsInstructions:new{}
 end
 
-function states.game:draw()
+function states.gamePuzzle:draw()
   slots:draw()
-  -- slotsThumbnails:draw()
   slotsSelect:draw()
   slotsInstructions:draw()
 end
 
-function states.game:update()
+function states.gamePuzzle:update()
   handleInput()
 end
