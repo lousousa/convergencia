@@ -4,5 +4,7 @@ states = {
     name = 'title'
   },
   credits = {},
-  game = {}
+  game = {
+    name = 'game'
+  }
 }

@@ -1,3 +1,12 @@
+require 'src/ui/slots-thumbnails'
+require 'src/ui/slots'
+
 function states.game:enter()
-  print('start game')
+  slotsThumbnails = SlotsThumbnails:new{}
+  slots = Slots:new{}
+end
+
+function states.game:draw()
+  slotsThumbnails:draw()
+  slots:draw()
 end

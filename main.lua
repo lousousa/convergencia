@@ -11,7 +11,9 @@ require('gamestates/game')
 
 local function handleInput()
   if Input:pressed 'quit' then
-    if Gamestate.current().name == 'title' then
+    if Gamestate.current().name == 'title'
+      or Gamestate.current().name == 'game'
+    then
       love.event.quit()
     else
       Gamestate.switch(states.title)
