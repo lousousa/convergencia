@@ -16,7 +16,7 @@ function SlotsSelect:draw()
     local x, y = self.itemsScreenOffsetX + (48 + 16) * (i - 1) + 24, 420
     local slot = SLOTS[i]
 
-    if slot then
+    if slot and slot.isUsed == false then
       slot.idx = i
       slot.x = x
       slot.y = y
@@ -58,18 +58,22 @@ function SlotsSelect:moveRight()
 end
 
 function SlotsSelect:selectItem()
-  if SLOTS[self.cursorPosition].enabled == false then
+  if SLOTS[self.cursorPosition].isUsed == true then
     do return end
   end
 
-  SLOTS[self.cursorPosition].enabled = false
+  SLOTS[self.cursorPosition].isUsed = true
   slots:addItem(SLOTS[self.cursorPosition])
 end
 
 function SlotsSelect:reset()
   for _, item in ipairs(SLOTS) do
-    item.enabled = true
+    item.isUsed = false
   end
 
   slots:reset()
+end
+
+function SlotsSelect:back()
+  Gamestate.switch(states.gameLevel)
 end

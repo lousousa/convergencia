@@ -27,6 +27,8 @@ end
 
 function AllyController:update()
   if self.collider:enter('Player') then
-    slotsThumbnails:addSlots()
+    table.insert(SLOTS, { value = 'E', isUsed = false })
+    table.insert(SLOTS, { value = 'I', isUsed = false })
+    table.insert(SLOTS, { value = 'V', isUsed = false })
   end
 end

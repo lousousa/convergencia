@@ -1,16 +1,13 @@
 SLOTS_MAX_SIZE = 13
 SLOTS = {
-  { value = 'E', enabled = true },
-  { value = 'N', enabled = true },
-  { value = 'G', enabled = true },
-  { value = 'U', enabled = true },
-  { value = 'M', enabled = true },
-  { value = 'S', enabled = true },
-  { value = 'I', enabled = true },
-  { value = 'O', enabled = true },
-  { value = 'N', enabled = true },
-  -- { value = 'E', enabled = true },
-  -- { value = 'I', enabled = true },
-  -- { value = 'V', enabled = true },
-  { value = 'V', enabled = true }
+  { value = 'E', isUsed = false },
+  { value = 'N', isUsed = false },
+  { value = 'G', isUsed = false },
+  { value = 'U', isUsed = false },
+  { value = 'M', isUsed = false },
+  { value = 'S', isUsed = false },
+  { value = 'I', isUsed = false },
+  { value = 'O', isUsed = false },
+  { value = 'N', isUsed = false },
+  { value = 'V', isUsed = false }
 }

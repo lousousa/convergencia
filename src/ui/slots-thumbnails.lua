@@ -23,7 +23,3 @@ function SlotsThumbnails:draw()
 
   love.graphics.rectangle('line', 371, 24, 538, 56, 24, 24)
 end
-
-function SlotsThumbnails:addSlots()
-  print('add slots')
-end

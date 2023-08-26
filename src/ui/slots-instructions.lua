@@ -11,6 +11,6 @@ end
 
 function SlotsInstructions:draw()
   love.graphics.setFont(self.instructionsFont)
-  local message = '< > : para mover\nSPACE: para selecionar\nK: para reiniciar'
-  love.graphics.printf(message, 901, 564, 200, 'right')
+  local message = '< > : para mover\nSPACE: para selecionar\nJ: para reiniciar\nK: para voltar'
+  love.graphics.printf(message, 901, 550, 200, 'right')
 end

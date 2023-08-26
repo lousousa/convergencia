@@ -8,6 +8,7 @@ Input = Baton.new {
     left = { 'key:left', 'key:a' },
     action1 = { 'key:space', 'key:l' },
     action2 = { 'key:k' },
+    action3 = { 'key:j' },
     start = { 'key:return' },
     quit = { 'key:escape' }
   }

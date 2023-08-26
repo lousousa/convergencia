@@ -16,6 +16,10 @@ local function handleInput()
   end
 
   if Input:pressed 'action2' then
+    slotsSelect:back()
+  end
+
+  if Input:pressed 'action3' then
     slotsSelect:reset()
   end
 end

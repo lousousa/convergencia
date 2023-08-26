@@ -27,6 +27,10 @@ end
 
 function CheckpointController:update()
   if self.collider:enter('Player') then
+    for _, item in ipairs(SLOTS) do
+      item.isUsed = false
+    end
+
     Gamestate.switch(states.gamePuzzle)
   end
 end
