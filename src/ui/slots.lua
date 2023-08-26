@@ -28,7 +28,7 @@ function Slots:new(t)
 end
 
 function Slots:draw()
-  local background = love.graphics.newImage('assets/images/game/slots-background.jpg')
+  local background = love.graphics.newImage('assets/images/game/background-slots.jpg')
   love.graphics.draw(background, 0, 0)
 
   for i = 0, 6 do
