@@ -7,8 +7,8 @@ function PlayerController:new(t)
   t.width = 64
   t.height = 64
   t.position = {
-    x = love.graphics.getWidth() / 2 - t.width / 2,
-    y = love.graphics.getHeight() / 2 - t.height / 2
+    x = 0,
+    y = 0
   }
 
   t.collider = world:newRectangleCollider(t.position.x, t.position.y, t.width, t.height)
@@ -21,7 +21,7 @@ end
 
 function PlayerController:draw()
   love.graphics.setColor(1, 1, 0)
-  love.graphics.rectangle('fill', self.position.x, self.position.y, self.width, self.height)
+  love.graphics.rectangle('fill', self.position.x - self.width / 2, self.position.y - self.height / 2, self.width, self.height)
 
   love.graphics.setColor(1, 1, 1)
 end

@@ -58,8 +58,8 @@ function states.gameLevel:update(dt)
   checkpointController:update()
   allyController:update()
 
-  playerController.position.x = playerController.collider:getX() - playerController.width / 2
-  playerController.position.y = playerController.collider:getY() - playerController.height / 2
+  playerController.position.x = playerController.collider:getX()
+  playerController.position.y = playerController.collider:getY()
   camera:lookAt(playerController.position.x, playerController.position.y)
 
   world:update(dt)
