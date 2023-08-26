@@ -7,8 +7,8 @@ function PlayerController:new(t)
   t.width = 64
   t.height = 64
   t.position = {
-    x = 0,
-    y = 0
+    x = PLAYER_SPAWN_POSITION.x,
+    y = PLAYER_SPAWN_POSITION.y
   }
 
   t.collider = world:newRectangleCollider(t.position.x, t.position.y, t.width, t.height)

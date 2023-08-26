@@ -1,3 +1,7 @@
+PLAYER_SPAWN_POSITION = {
+  x = 0,
+  y = 0
+}
 SLOTS_MAX_SIZE = 13
 SLOTS = {
   { value = 'E', isUsed = false },
