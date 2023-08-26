@@ -24,3 +24,9 @@ function CheckpointController:draw()
 
   love.graphics.setColor(1, 1, 1)
 end
+
+function CheckpointController:update()
+  if self.collider:enter('Player') then
+    Gamestate.switch(states.gamePuzzle)
+  end
+end
