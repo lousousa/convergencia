@@ -21,7 +21,7 @@ function SlotsSelect:new(t)
   }
 
   t.itemsScreenOffsetX = 232
-  t.itemsFont = love.graphics.newFont(primaryFontSrc, 24)
+  t.itemsFont = love.graphics.newFont(keyboardFontSrc, 32)
   t.cursorPosition = 1
 
   return t
@@ -39,7 +39,7 @@ function SlotsSelect:draw()
       love.graphics.circle('fill', x, y, 24)
       love.graphics.setColor(0, 0, 0)
       love.graphics.setFont(self.itemsFont)
-      love.graphics.print(item.value, x - 6, y - 18)
+      love.graphics.print(item.value, x - 10, y - 18)
       love.graphics.setColor(1, 1, 1)
     else
       love.graphics.circle('line', x, y, 24)

@@ -11,7 +11,7 @@ function Slots:new(t)
   }
 
   t.items = {}
-  t.itemsFont = love.graphics.newFont(primaryFontSrc, 24)
+  t.itemsFont = love.graphics.newFont(keyboardFontSrc, 32)
   t.cursorPosition = 1
 
   return t
@@ -45,7 +45,7 @@ function Slots:draw()
   for _, item in ipairs(self.items) do
     love.graphics.setColor(0, 0, 0)
     love.graphics.setFont(self.itemsFont)
-    love.graphics.print(item.value, item.x - 6, item.y - 18)
+    love.graphics.print(item.value, item.x - 10, item.y - 18)
     love.graphics.setColor(1, 1, 1)
   end
 end
