@@ -3,11 +3,11 @@ Gamestate = require 'vendor/hump/gamestate'
 
 require('input')
 
-require('gamestates/init')
-require('gamestates/splash')
-require('gamestates/title')
-require('gamestates/credits')
-require('gamestates/game')
+require('states/init')
+require('states/splash')
+require('states/title')
+require('states/credits')
+require('states/game')
 
 local function handleInput()
   if Input:pressed 'quit' then
