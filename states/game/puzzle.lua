@@ -3,6 +3,10 @@ require 'src/ui/slots-select'
 require 'src/ui/slots-instructions'
 
 local function handleInput()
+  if slots.isWaiting == true then
+    do return end
+  end
+
   if Input:pressed 'left' then
     slotsSelect:moveLeft()
   end
@@ -36,6 +40,7 @@ function states.gamePuzzle:draw()
   slotsInstructions:draw()
 end
 
-function states.gamePuzzle:update()
+function states.gamePuzzle:update(dt)
+  slots:update(dt)
   handleInput()
 end

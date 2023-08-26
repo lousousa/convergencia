@@ -8,7 +8,7 @@ function states.gameEnd:draw()
   local width = love.graphics.getWidth()
   local height = love.graphics.getHeight()
 
-  love.graphics.printf('Paraboins,\nvc resolveu o puzzle!', 0, height / 2, width, 'center')
+  love.graphics.printf('Parabéns,\nvc resolveu o enigma!', 0, height / 2, width, 'center')
 end
 
 function states.gameEnd:update()

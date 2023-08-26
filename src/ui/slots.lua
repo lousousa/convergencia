@@ -13,7 +13,16 @@ function Slots:new(t)
   t.items = {}
   t.currentText = ''
   t.itemsFont = love.graphics.newFont(keyboardFontSrc, 32)
+  t.messageFont = love.graphics.newFont(primaryFontSrc, 48)
   t.cursorPosition = 1
+  t.isWaiting = false
+
+  t.resultMessages = {
+    'Parabéns, você resolveu o enigma!',
+    'Parece que a combinação não é essa.'
+  }
+
+  t.drawMessage = 0
 
   return t
 end
@@ -49,6 +58,24 @@ function Slots:draw()
     love.graphics.print(item.value, item.x - 10, item.y - 18)
     love.graphics.setColor(1, 1, 1)
   end
+
+  if self.resultMessages[self.drawMessage] then
+    local width = love.graphics.getWidth()
+
+    if self.drawMessage == 1 then
+      love.graphics.setColor(1, 1, 0)
+    elseif self.drawMessage == 2 then
+      love.graphics.setColor(1, 0, 0)
+    end
+
+    love.graphics.setFont(self.messageFont)
+    love.graphics.printf(self.resultMessages[self.drawMessage], 0, 120, width, 'center')
+    love.graphics.setColor(1, 1, 1)
+  end
+end
+
+function Slots:update(dt)
+  Timer.update(dt)
 end
 
 function Slots:addItem(item)
@@ -60,11 +87,13 @@ function Slots:addItem(item)
     local isSuccess = encoded == 'TklOR1VFTVZJVkVTTw=='
 
     if isSuccess then
-      Gamestate.switch(states.gameEnd)
+      self.drawMessage = 1
+      self.isWaiting = true
+      Timer.after(2, function() Gamestate.switch(states.gameEnd) end)
       do return end
     end
 
-    print('youre failed')
+    self.drawMessage = 2
     do return end
   end
 
@@ -76,6 +105,7 @@ function Slots:reset()
     item.value = ''
   end
 
+  self.drawMessage = 0
   self.currentText = ''
   self.cursorPosition = 1
 end
