@@ -49,6 +49,13 @@ end
 
 function Slots:addItem(item)
   self.items[self.cursorPosition].value = item.value
-
   self.cursorPosition = self.cursorPosition + 1
+end
+
+function Slots:reset()
+  for _, item in ipairs(self.items) do
+    item.value = ''
+  end
+
+  self.cursorPosition = 1
 end

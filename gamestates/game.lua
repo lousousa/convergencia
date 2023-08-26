@@ -14,6 +14,10 @@ local function handleInput()
   if Input:pressed 'action1' then
     select:selectItem()
   end
+
+  if Input:pressed 'action2' then
+    select:reset()
+  end
 end
 
 function states.game:enter()

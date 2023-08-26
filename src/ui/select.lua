@@ -4,7 +4,7 @@ function Select:new(t)
   setmetatable(t, self)
   self.__index = self
 
-  t.availableItems = {
+  t.items = {
     { value = 'E', enabled = true },
     { value = 'N', enabled = true },
     { value = 'G', enabled = true },
@@ -28,7 +28,7 @@ function Select:new(t)
 end
 
 function Select:draw()
-  for i, item in ipairs(self.availableItems) do
+  for i, item in ipairs(self.items) do
     local x, y = self.itemsScreenOffsetX + (48 + 16) * (i - 1) + 24, 420
 
     if item.enabled then
@@ -48,15 +48,15 @@ function Select:draw()
 
   love.graphics.circle(
     'line',
-    self.availableItems[self.cursorPosition].x,
-    self.availableItems[self.cursorPosition].y,
+    self.items[self.cursorPosition].x,
+    self.items[self.cursorPosition].y,
     32
   )
 end
 
 function Select:moveLeft()
   if self.cursorPosition == 1 then
-    self.cursorPosition = #self.availableItems
+    self.cursorPosition = #self.items
     do return end
   end
 
@@ -64,7 +64,7 @@ function Select:moveLeft()
 end
 
 function Select:moveRight()
-  if self.cursorPosition == #self.availableItems then
+  if self.cursorPosition == #self.items then
     self.cursorPosition = 1
     do return end
   end
@@ -73,6 +73,18 @@ function Select:moveRight()
 end
 
 function Select:selectItem()
-  self.availableItems[self.cursorPosition].enabled = false
-  slots:addItem(self.availableItems[self.cursorPosition])
+  if self.items[self.cursorPosition].enabled == false then
+    do return end
+  end
+
+  self.items[self.cursorPosition].enabled = false
+  slots:addItem(self.items[self.cursorPosition])
+end
+
+function Select:reset()
+  for _, item in ipairs(self.items) do
+    item.enabled = true
+  end
+
+  slots:reset()
 end
