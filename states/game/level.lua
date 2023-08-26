@@ -60,7 +60,7 @@ function states.gameLevel:draw()
       controller:draw()
     end
 
-    -- world:draw()
+    world:draw()
   camera:detach()
 
   slotsThumbnails:draw()

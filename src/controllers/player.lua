@@ -4,8 +4,8 @@ function PlayerController:new(t)
   setmetatable(t, self)
   self.__index = self
 
-  t.width = 64
-  t.height = 64
+  t.width = 128
+  t.height = 128
   t.position = {
     x = PLAYER_SPAWN_POSITION.x,
     y = PLAYER_SPAWN_POSITION.y
@@ -16,7 +16,7 @@ function PlayerController:new(t)
   t.collider:setLinearDamping(5)
   t.collider:setFixedRotation(true)
 
-  t.spriteSheet = love.graphics.newImage("assets/images/game/character-player.png")
+  t.spriteSheet = love.graphics.newImage("assets/images/game/character-player-2x.png")
 
   t.grid = Anim8.newGrid(
     t.width,
@@ -59,7 +59,7 @@ end
 function PlayerController:move(dir)
   local px, py = self.collider:getLinearVelocity()
 
-  if px < 1000 or py < 1000 then
-    self.collider:applyForce(8000 * dir.x, 8000 * dir.y)
+  if px < 4000 or py < 4000 then
+    self.collider:applyForce(50000 * dir.x, 50000 * dir.y)
   end
 end

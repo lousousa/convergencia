@@ -7,8 +7,8 @@ function CheckpointController:new(t)
   t.width = 64
   t.height = 64
   t.position = {
-    x = 200,
-    y = 200
+    x = 1000,
+    y = 1000
   }
 
   t.collider = world:newRectangleCollider(t.position.x, t.position.y, t.width, t.height)
