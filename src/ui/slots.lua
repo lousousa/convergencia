@@ -10,20 +10,45 @@ function Slots:new(t)
     976
   }
 
+  t.items = {}
+  t.itemsFont = love.graphics.newFont(primaryFontSrc, 24)
+  t.cursorPosition = 1
+
   return t
 end
 
 function Slots:draw()
   for i = 0, 6 do
-    love.graphics.circle('fill', self.itemsScreenOffsetX[1] + 64 * i + 24, 300, 24)
+    local x, y = self.itemsScreenOffsetX[1] + 64 * i + 24, 300
+    love.graphics.circle('fill', x, y, 24)
+
+    table.insert(self.items, { idx = #self.items + 1, x = x, y = y, value = '' })
   end
 
   for i = 0, 3 do
-    love.graphics.circle('fill', self.itemsScreenOffsetX[2] + 64 * i + 24, 300, 24)
+    local x, y = self.itemsScreenOffsetX[2] + 64 * i + 24, 300
+    love.graphics.circle('fill', x, y, 24)
+
+    table.insert(self.items, { idx = #self.items + 1, x = x, y = y, value = '' })
   end
 
   for i = 0, 1 do
-    love.graphics.circle('fill', self.itemsScreenOffsetX[3] + 64 * i + 24, 300, 24)
+    local x, y = self.itemsScreenOffsetX[3] + 64 * i + 24, 300
+    love.graphics.circle('fill', x, y, 24)
+
+    table.insert(self.items, { idx = #self.items + 1, x = x, y = y, value = '' })
   end
 
+  for _, item in ipairs(self.items) do
+    love.graphics.setColor(0, 0, 0)
+    love.graphics.setFont(self.itemsFont)
+    love.graphics.print(item.value, item.x - 6, item.y - 18)
+    love.graphics.setColor(1, 1, 1)
+  end
+end
+
+function Slots:addItem(item)
+  self.items[self.cursorPosition].value = item.value
+
+  self.cursorPosition = self.cursorPosition + 1
 end
