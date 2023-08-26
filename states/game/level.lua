@@ -37,29 +37,45 @@ function states.gameLevel:enter()
 
   playerController = PlayerController:new{}
   checkpointController = CheckpointController:new{}
-  allyController = AllyController:new{
-    position = { x = 1000, y = 600 },
-    slots = { 'E', 'I', 'V' }
+  allyControllers = {
+    AllyController:new{
+      position = { x = 500, y = 600 },
+      slots = { 'E', 'I', 'V' }
+    },
+    AllyController:new{
+      position = { x = -100, y = 600 },
+      slots = { 'E', 'N' }
+    },
+    AllyController:new{
+      position = { x = 200, y = 900 },
+      slots = { 'G', 'U', 'M' }
+    }
   }
 end
 
 function states.gameLevel:draw()
-  slotsThumbnails:draw()
-
   camera:attach()
     playerController:draw()
     checkpointController:draw()
-    allyController:draw()
+
+    for _, controller in ipairs(allyControllers) do
+      controller:draw()
+    end
 
     -- world:draw()
   camera:detach()
+
+  slotsThumbnails:draw()
 end
 
 function states.gameLevel:update(dt)
   handleInput()
 
   checkpointController:update()
-  allyController:update()
+
+  for _, controller in ipairs(allyControllers) do
+    controller:update()
+  end
 
   playerController.position.x = playerController.collider:getX()
   playerController.position.y = playerController.collider:getY()

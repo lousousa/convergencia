@@ -58,6 +58,10 @@ function SlotsSelect:moveRight()
 end
 
 function SlotsSelect:selectItem()
+  if SLOTS[self.cursorPosition] == nil then
+    do return end
+  end
+
   if SLOTS[self.cursorPosition].isUsed == true then
     do return end
   end
