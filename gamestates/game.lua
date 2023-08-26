@@ -1,35 +1,38 @@
-require 'src/ui/slots-thumbnails'
 require 'src/ui/slots'
-require 'src/ui/select'
+require 'src/ui/slots-thumbnails'
+require 'src/ui/slots-select'
+require 'src/ui/slots-instructions'
 
 local function handleInput()
   if Input:pressed 'left' then
-    select:moveLeft()
+    slotsSelect:moveLeft()
   end
 
   if Input:pressed 'right' then
-    select:moveRight()
+    slotsSelect:moveRight()
   end
 
   if Input:pressed 'action1' then
-    select:selectItem()
+    slotsSelect:selectItem()
   end
 
   if Input:pressed 'action2' then
-    select:reset()
+    slotsSelect:reset()
   end
 end
 
 function states.game:enter()
-  slotsThumbnails = SlotsThumbnails:new{}
   slots = Slots:new{}
-  select = Select:new{}
+  slotsThumbnails = SlotsThumbnails:new{}
+  slotsSelect = SlotsSelect:new{}
+  slotsInstructions = SlotsInstructions:new{}
 end
 
 function states.game:draw()
-  slotsThumbnails:draw()
   slots:draw()
-  select:draw()
+  slotsThumbnails:draw()
+  slotsSelect:draw()
+  slotsInstructions:draw()
 end
 
 function states.game:update()

@@ -1,6 +1,6 @@
-Select = {}
+SlotsSelect = {}
 
-function Select:new(t)
+function SlotsSelect:new(t)
   setmetatable(t, self)
   self.__index = self
 
@@ -27,7 +27,7 @@ function Select:new(t)
   return t
 end
 
-function Select:draw()
+function SlotsSelect:draw()
   for i, item in ipairs(self.items) do
     local x, y = self.itemsScreenOffsetX + (48 + 16) * (i - 1) + 24, 420
 
@@ -54,7 +54,7 @@ function Select:draw()
   )
 end
 
-function Select:moveLeft()
+function SlotsSelect:moveLeft()
   if self.cursorPosition == 1 then
     self.cursorPosition = #self.items
     do return end
@@ -63,7 +63,7 @@ function Select:moveLeft()
   self.cursorPosition = self.cursorPosition - 1
 end
 
-function Select:moveRight()
+function SlotsSelect:moveRight()
   if self.cursorPosition == #self.items then
     self.cursorPosition = 1
     do return end
@@ -72,7 +72,7 @@ function Select:moveRight()
   self.cursorPosition = self.cursorPosition + 1
 end
 
-function Select:selectItem()
+function SlotsSelect:selectItem()
   if self.items[self.cursorPosition].enabled == false then
     do return end
   end
@@ -81,7 +81,7 @@ function Select:selectItem()
   slots:addItem(self.items[self.cursorPosition])
 end
 
-function Select:reset()
+function SlotsSelect:reset()
   for _, item in ipairs(self.items) do
     item.enabled = true
   end
