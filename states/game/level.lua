@@ -37,7 +37,10 @@ function states.gameLevel:enter()
 
   playerController = PlayerController:new{}
   checkpointController = CheckpointController:new{}
-  allyController = AllyController:new{}
+  allyController = AllyController:new{
+    position = { x = 1000, y = 600 },
+    slots = { 'E', 'I', 'V' }
+  }
 end
 
 function states.gameLevel:draw()
@@ -48,7 +51,7 @@ function states.gameLevel:draw()
     checkpointController:draw()
     allyController:draw()
 
-    world:draw()
+    -- world:draw()
   camera:detach()
 end
 

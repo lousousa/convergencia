@@ -6,10 +6,6 @@ function AllyController:new(t)
 
   t.width = 64
   t.height = 64
-  t.position = {
-    x = 1000,
-    y = 600
-  }
 
   t.collider = world:newRectangleCollider(t.position.x, t.position.y, t.width, t.height)
   t.collider:setCollisionClass('Ally')
@@ -27,8 +23,8 @@ end
 
 function AllyController:update()
   if self.collider:enter('Player') then
-    table.insert(SLOTS, { value = 'E', isUsed = false })
-    table.insert(SLOTS, { value = 'I', isUsed = false })
-    table.insert(SLOTS, { value = 'V', isUsed = false })
+    for _, slot in ipairs(self.slots) do
+      table.insert(SLOTS, { value = slot, inUsed = false })
+    end
   end
 end
