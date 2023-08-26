@@ -3,6 +3,8 @@ Gamestate = require 'vendor/hump/gamestate'
 
 require('input')
 
+require('src/globals')
+
 require('states/init')
 require('states/splash')
 require('states/title')
