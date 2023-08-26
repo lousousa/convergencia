@@ -9,5 +9,6 @@ states = {
   },
   gameLevel = {
     name = 'gameLevel'
-  }
+  },
+  gameEnd = {}
 }

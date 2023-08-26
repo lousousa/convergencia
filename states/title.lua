@@ -86,7 +86,7 @@ function states.title:draw()
 
   love.graphics.setColor(1, 1, 1, titleOpacity)
   love.graphics.setFont(titleFont)
-  love.graphics.printf('Convergencia', 0, 106, width, 'center')
+  love.graphics.printf('Elo', 0, 106, width, 'center')
 
   for i, option in ipairs(titleOptions) do
     if i == titleSelected then

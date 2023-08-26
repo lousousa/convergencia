@@ -52,6 +52,12 @@ end
 
 function Slots:addItem(item)
   self.items[self.cursorPosition].value = item.value
+
+  if self.cursorPosition == SLOTS_MAX_SIZE then
+    Gamestate.switch(states.gameEnd)
+    do return end
+  end
+
   self.cursorPosition = self.cursorPosition + 1
 end
 

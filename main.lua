@@ -11,6 +11,7 @@ require('states/title')
 require('states/credits')
 require('states/game/puzzle')
 require('states/game/level')
+require('states/game/end')
 
 local function handleInput()
   if Input:pressed 'quit' then
