@@ -11,6 +11,7 @@ function Slots:new(t)
   }
 
   t.items = {}
+  t.currentText = ''
   t.itemsFont = love.graphics.newFont(keyboardFontSrc, 32)
   t.cursorPosition = 1
 
@@ -52,9 +53,18 @@ end
 
 function Slots:addItem(item)
   self.items[self.cursorPosition].value = item.value
+  self.currentText = self.currentText .. item.value
 
   if self.cursorPosition == SLOTS_MAX_SIZE then
-    Gamestate.switch(states.gameEnd)
+    local encoded = love.data.encode('string', 'base64', self.currentText)
+    local isSuccess = encoded == 'TklOR1VFTVZJVkVTTw=='
+
+    if isSuccess then
+      Gamestate.switch(states.gameEnd)
+      do return end
+    end
+
+    print('youre failed')
     do return end
   end
 
@@ -66,5 +76,6 @@ function Slots:reset()
     item.value = ''
   end
 
+  self.currentText = ''
   self.cursorPosition = 1
 end
