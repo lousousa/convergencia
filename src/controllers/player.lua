@@ -12,7 +12,7 @@ function PlayerController:new(t)
   }
 
   t.collider = world:newRectangleCollider(t.position.x, t.position.y, t.width, t.height)
-  t.collider:setCollisionClass("Player")
+  t.collider:setCollisionClass('Player')
   t.collider:setLinearDamping(5)
   t.collider:setFixedRotation(true)
 

@@ -1,7 +1,9 @@
 WF = require 'vendor/windfield'
 
 require 'src/ui/slots-thumbnails'
+
 require 'src/controllers/player'
+require 'src/controllers/checkpoint'
 
 local function handleInput()
   if Input:down 'left' then
@@ -24,14 +26,19 @@ end
 function states.gameLevel:enter()
   world = WF.newWorld(0, 0)
   world:addCollisionClass('Player')
+  world:addCollisionClass('Checkpoint')
 
   slotsThumbnails = SlotsThumbnails:new{}
+
   playerController = PlayerController:new{}
+  checkpointController = CheckpointController:new{}
 end
 
 function states.gameLevel:draw()
   slotsThumbnails:draw()
+
   playerController:draw()
+  checkpointController:draw()
 
   world:draw()
 end
@@ -41,5 +48,6 @@ function states.gameLevel:update(dt)
 
   playerController.position.x = playerController.collider:getX() - playerController.width / 2
   playerController.position.y = playerController.collider:getY() - playerController.height / 2
+
   world:update(dt)
 end
