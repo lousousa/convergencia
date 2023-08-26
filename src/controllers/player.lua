@@ -11,7 +11,7 @@ function PlayerController:new(t)
     y = PLAYER_SPAWN_POSITION.y
   }
 
-  t.collider = world:newRectangleCollider(t.position.x, t.position.y, t.width, t.height)
+  t.collider = world:newCircleCollider(t.position.x, t.position.y, t.width / 4)
   t.collider:setCollisionClass('Player')
   t.collider:setLinearDamping(5)
   t.collider:setFixedRotation(true)
@@ -60,6 +60,6 @@ function PlayerController:move(dir)
   local px, py = self.collider:getLinearVelocity()
 
   if px < 4000 or py < 4000 then
-    self.collider:applyForce(50000 * dir.x, 50000 * dir.y)
+    self.collider:applyForce(10000 * dir.x, 10000 * dir.y)
   end
 end
