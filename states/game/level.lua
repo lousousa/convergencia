@@ -38,18 +38,11 @@ function states.gameLevel:enter()
   playerController = PlayerController:new{}
   checkpointController = CheckpointController:new{}
   allyControllers = {
-    AllyController:new{
-      position = { x = 500, y = 600 },
-      slots = { 'E', 'I', 'V' }
-    },
-    AllyController:new{
-      position = { x = -100, y = 600 },
-      slots = { 'E', 'N' }
-    },
-    AllyController:new{
-      position = { x = 200, y = 900 },
-      slots = { 'G', 'U', 'M' }
-    }
+    AllyController:new{ idx = 1, position = { x = 500, y = 100 }, slots = { 'S', 'I' } },
+    AllyController:new{ idx = 2, position = { x = -100, y = -100 }, slots = { 'O', 'N', 'V' } },
+    AllyController:new{ idx = 3, position = { x = 500, y = 600 }, slots = { 'E', 'I', 'V' } },
+    AllyController:new{ idx = 4, position = { x = -100, y = 600 }, slots = { 'E', 'N' } },
+    AllyController:new{ idx = 5, position = { x = 200, y = 900 }, slots = { 'G', 'U', 'M' } }
   }
 end
 

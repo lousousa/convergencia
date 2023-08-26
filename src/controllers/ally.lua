@@ -6,7 +6,10 @@ function AllyController:new(t)
 
   t.width = 64
   t.height = 64
-  t.state = 1
+
+  if ALLIES_STATE[t.idx] == nil then
+    ALLIES_STATE[t.idx] = 1
+  end
 
   t.collider = world:newRectangleCollider(t.position.x, t.position.y, t.width, t.height)
   t.collider:setCollisionClass('Ally')
@@ -16,7 +19,12 @@ function AllyController:new(t)
 end
 
 function AllyController:draw()
-  love.graphics.setColor(0, 0, 1)
+  if ALLIES_STATE[self.idx] == 1 then
+    love.graphics.setColor(0, 0, 1)
+  elseif ALLIES_STATE[self.idx] == 2 then
+    love.graphics.setColor(0, 1, 1)
+  end
+
   love.graphics.rectangle('fill', self.position.x, self.position.y, self.width, self.height)
 
   love.graphics.setColor(1, 1, 1)
@@ -24,11 +32,11 @@ end
 
 function AllyController:update()
   if self.collider:enter('Player') then
-    if self.hasSlots == 2 then
+    if ALLIES_STATE[self.idx] == 2 then
       do return end
     end
 
-    self.hasSlots = 2
+    ALLIES_STATE[self.idx] = 2
 
     for _, slot in ipairs(self.slots) do
       table.insert(SLOTS, { value = slot, inUsed = false })
