@@ -1,4 +1,5 @@
 WF = require 'vendor/windfield'
+Camera = require 'vendor/camera'
 
 require 'src/ui/slots-thumbnails'
 
@@ -25,7 +26,9 @@ local function handleInput()
 end
 
 function states.gameLevel:enter()
-  world = WF.newWorld(0, 0)
+  world = WF.newWorld()
+  camera = Camera()
+
   world:addCollisionClass('Player')
   world:addCollisionClass('Checkpoint')
   world:addCollisionClass('Ally')
@@ -40,11 +43,13 @@ end
 function states.gameLevel:draw()
   slotsThumbnails:draw()
 
-  playerController:draw()
-  checkpointController:draw()
-  allyController:draw()
+  camera:attach()
+    playerController:draw()
+    checkpointController:draw()
+    allyController:draw()
 
-  world:draw()
+    world:draw()
+  camera:detach()
 end
 
 function states.gameLevel:update(dt)
@@ -55,6 +60,7 @@ function states.gameLevel:update(dt)
 
   playerController.position.x = playerController.collider:getX() - playerController.width / 2
   playerController.position.y = playerController.collider:getY() - playerController.height / 2
+  camera:lookAt(playerController.position.x, playerController.position.y)
 
   world:update(dt)
 end
