@@ -30,7 +30,7 @@ end
 
 function states.game:draw()
   slots:draw()
-  slotsThumbnails:draw()
+  -- slotsThumbnails:draw()
   slotsSelect:draw()
   slotsInstructions:draw()
 end

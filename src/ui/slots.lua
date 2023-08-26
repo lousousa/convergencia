@@ -18,6 +18,9 @@ function Slots:new(t)
 end
 
 function Slots:draw()
+  local background = love.graphics.newImage('assets/images/game/slots-background.jpg')
+  love.graphics.draw(background, 0, 0)
+
   for i = 0, 6 do
     local x, y = self.itemsScreenOffsetX[1] + 64 * i + 24, 300
     love.graphics.circle('fill', x, y, 24)
