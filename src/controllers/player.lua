@@ -16,14 +16,44 @@ function PlayerController:new(t)
   t.collider:setLinearDamping(5)
   t.collider:setFixedRotation(true)
 
+  t.spriteSheet = love.graphics.newImage("assets/images/game/character-player.png")
+
+  t.grid = Anim8.newGrid(
+    t.width,
+    t.height,
+    t.spriteSheet:getWidth(),
+    t.spriteSheet:getHeight()
+  )
+
+  t.animations = {
+    walking = {
+      up = Anim8.newAnimation(t.grid('1-1', 1), 0.125),
+      right = Anim8.newAnimation(t.grid('3-3', 1), 0.125):flipH(),
+      down = Anim8.newAnimation(t.grid('2-2', 1), 0.125),
+      left = Anim8.newAnimation(t.grid('3-3', 1), 0.125)
+    }
+  }
+
+  t.animation = t.animations.walking.up
+
   return t
 end
 
 function PlayerController:draw()
-  love.graphics.setColor(1, 1, 0)
-  love.graphics.rectangle('fill', self.position.x - self.width / 2, self.position.y - self.height / 2, self.width, self.height)
+  self.animation:draw(
+    self.spriteSheet,
+    self.position.x,
+    self.position.y,
+    nil, -- angle
+    nil, -- scale x
+    nil, -- scale y
+    self.width / 2, -- offset x
+    self.height / 2 -- offset y
+  )
+end
 
-  love.graphics.setColor(1, 1, 1)
+function PlayerController:update(dt)
+  self.animation:update(dt)
 end
 
 function PlayerController:move(dir)

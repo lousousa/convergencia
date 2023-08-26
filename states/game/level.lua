@@ -1,5 +1,6 @@
 WF = require 'vendor/windfield'
 Camera = require 'vendor/camera'
+Anim8 = require 'vendor/anim8'
 
 require 'src/ui/slots-thumbnails'
 
@@ -8,20 +9,24 @@ require 'src/controllers/checkpoint'
 require 'src/controllers/ally'
 
 local function handleInput()
-  if Input:down 'left' then
-    playerController:move{ x = -1, y = 0 }
+  if Input:down 'up' then
+    playerController:move{ x = 0, y = -1 }
+    playerController.animation = playerController.animations.walking.up
   end
 
   if Input:down 'right' then
     playerController:move{ x = 1, y = 0 }
+    playerController.animation = playerController.animations.walking.right
   end
 
-  if Input:down 'up' then
-    playerController:move{ x = 0, y = -1 }
+  if Input:down 'left' then
+    playerController:move{ x = -1, y = 0 }
+    playerController.animation = playerController.animations.walking.left
   end
 
   if Input:down 'down' then
     playerController:move{ x = 0, y = 1 }
+    playerController.animation = playerController.animations.walking.down
   end
 end
 
@@ -73,6 +78,8 @@ function states.gameLevel:update(dt)
   playerController.position.x = playerController.collider:getX()
   playerController.position.y = playerController.collider:getY()
   camera:lookAt(playerController.position.x, playerController.position.y)
+
+  playerController:update(dt)
 
   world:update(dt)
 end
