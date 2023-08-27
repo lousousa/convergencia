@@ -6,7 +6,7 @@ function states.gameEnd:enter()
   width = love.graphics.getWidth()
   height = love.graphics.getHeight()
 
-  map = STI('assets/maps/predio.lua')
+  map = STI('assets/maps/end-game.lua')
 
   PLAYER_SPAWN_POSITION.x = width / 2
   PLAYER_SPAWN_POSITION.y = height / 2 - 150
@@ -42,6 +42,7 @@ end
 
 function states.gameEnd:draw()
   map:drawLayer(map.layers['layer1'])
+  map:drawLayer(map.layers['layer2'])
   playerController:draw()
 
   for _, controller in ipairs(allyControllers) do
