@@ -107,12 +107,15 @@ function states.gameLevel:enter()
 
   music = love.audio.newSource('assets/music/mysterious-ambiance.mp3', 'stream')
   music:play()
+  music:setLooping(true)
 end
 
 function states.gameLevel:draw()
   camera:attach()
     map:drawLayer(map.layers['layer1'])
     map:drawLayer(map.layers['layer2'])
+    map:drawLayer(map.layers['layer3'])
+    map:drawLayer(map.layers['layer4'])
     checkpointController:draw()
 
     for _, controller in ipairs(allyControllers) do
