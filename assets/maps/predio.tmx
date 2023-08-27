@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.2" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="128" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="20">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="128" tileheight="128" infinite="0" nextlayerid="5" nextobjectid="20">
  <editorsettings>
   <export target="predio.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" name="tileset-predio" tilewidth="128" tileheight="128" tilecount="1" columns="1">
   <image source="../images/game/tileset-predio.png" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="2" name="tileset-esgotos" tilewidth="128" tileheight="128" tilecount="9" columns="3">
+  <image source="../images/game/tileset-esgotos.png" width="389" height="384"/>
+ </tileset>
+ <tileset firstgid="11" name="tileset-parede" tilewidth="128" tileheight="128" tilecount="8" columns="4">
+  <image source="../images/game/tileset-parede.png" width="512" height="256"/>
  </tileset>
  <layer id="1" name="layer1" width="40" height="40" locked="1">
   <data encoding="csv">

@@ -65,7 +65,7 @@ function Slots:draw()
     if self.drawMessage == 1 then
       love.graphics.setColor(1, 1, 0)
     elseif self.drawMessage == 2 then
-      love.graphics.setColor(1, 0, 0)
+      love.graphics.setColor(1, .5, .5)
     end
 
     love.graphics.setFont(self.messageFont)
