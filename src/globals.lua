@@ -1,7 +1,6 @@
-PLAYER_SPAWN_POSITION = {
-  x = 0,
-  y = 0
-}
+GAME_IS_READY = false
+PLAYER_SPAWN_POSITION = { x = 0, y = 0 }
+CHECKPOINT_POSITION = { x = 0, y = 0 }
 SLOTS_MAX_SIZE = 13
 SLOTS = {}
 ALLIES_STATE = {}

@@ -43,8 +43,12 @@ function states.gameLevel:enter()
   slotsThumbnails = SlotsThumbnails:new{}
 
   playerObj = map.layers['player'].objects[1]
-  PLAYER_SPAWN_POSITION.x = playerObj.x
-  PLAYER_SPAWN_POSITION.y = playerObj.y
+
+  if GAME_IS_READY == false then
+    PLAYER_SPAWN_POSITION.x = playerObj.x
+    PLAYER_SPAWN_POSITION.y = playerObj.y
+  end
+
   playerController = PlayerController:new{}
 
   checkpointObj = map.layers['checkpoint'].objects[1]
@@ -54,6 +58,9 @@ function states.gameLevel:enter()
       y = checkpointObj.y
     }
   }
+
+  CHECKPOINT_POSITION.x = checkpointObj.x
+  CHECKPOINT_POSITION.y = checkpointObj.y
 
   slotsByAlly = {
     { 'S', 'I' },
@@ -71,6 +78,8 @@ function states.gameLevel:enter()
       table.insert(allyControllers, ally)
     end
   end
+
+  GAME_IS_READY = true
 end
 
 function states.gameLevel:draw()

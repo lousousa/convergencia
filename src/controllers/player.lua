@@ -11,6 +11,8 @@ function PlayerController:new(t)
     y = PLAYER_SPAWN_POSITION.y
   }
 
+  print(t.position.x)
+
   t.collider = world:newCircleCollider(t.position.x, t.position.y, t.width / 4)
   t.collider:setCollisionClass('Player')
   t.collider:setLinearDamping(5)

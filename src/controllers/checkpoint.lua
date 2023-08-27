@@ -27,8 +27,8 @@ function CheckpointController:update()
       item.isUsed = false
     end
 
-    PLAYER_SPAWN_POSITION.x = 200
-    PLAYER_SPAWN_POSITION.y = 280
+    PLAYER_SPAWN_POSITION.x = CHECKPOINT_POSITION.x + 32
+    PLAYER_SPAWN_POSITION.y = CHECKPOINT_POSITION.y + 128
 
     Gamestate.switch(states.gamePuzzle)
   end
