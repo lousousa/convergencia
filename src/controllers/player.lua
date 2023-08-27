@@ -56,6 +56,11 @@ end
 
 function PlayerController:update(dt)
   self.animation:update(dt)
+
+  if self.collider:enter('Trigger-Gate') then
+    local message = 'Tenho que descobrir uma forma de abrir essa saida.'
+    dialog:show(message, 5, { x = self.position.x, y = self.position.y - 200 })
+  end
 end
 
 function PlayerController:move(dir)

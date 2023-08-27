@@ -1,14 +1,14 @@
 local function textFadeIn()
   if titleOpacity < 1 then
-    titleOpacity = titleOpacity + .005
+    titleOpacity = titleOpacity + .01
   end
 
   if titleOpacity > .125 and optionsOpacity < 1 then
-    optionsOpacity = optionsOpacity + .005
+    optionsOpacity = optionsOpacity + .01
   end
 
   if optionsOpacity > .125 and footerOpacity < 1 then
-    footerOpacity = footerOpacity + .005
+    footerOpacity = footerOpacity + .01
   end
 end
 

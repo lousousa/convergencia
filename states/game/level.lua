@@ -35,6 +35,7 @@ function states.gameLevel:enter()
   world:addCollisionClass('Player')
   world:addCollisionClass('Checkpoint')
   world:addCollisionClass('Ally')
+  world:addCollisionClass('Trigger-Gate')
 
   slotsThumbnails = SlotsThumbnails:new{}
   dialog = Dialog:new{}
@@ -58,6 +59,11 @@ function states.gameLevel:enter()
 
   CHECKPOINT_POSITION.x = checkpointObj.x
   CHECKPOINT_POSITION.y = checkpointObj.y
+
+  local triggerGate = map.layers['trigger-portao'].objects[1]
+  local triggerGateCollider = world:newRectangleCollider(triggerGate.x, triggerGate.y, triggerGate.width, triggerGate.height)
+  triggerGateCollider:setType('static')
+  triggerGateCollider:setCollisionClass('Trigger-Gate')
 
   slotsByAlly = {
     { 'S', 'I' },
