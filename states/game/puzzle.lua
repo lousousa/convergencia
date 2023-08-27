@@ -32,6 +32,10 @@ function states.gamePuzzle:enter()
   slots = Slots:new{}
   slotsSelect = SlotsSelect:new{}
   slotsInstructions = SlotsInstructions:new{}
+
+  musicManager:stopAll()
+  musicManager.list.credits:play()
+  musicManager.list.credits:setLooping(true)
 end
 
 function states.gamePuzzle:draw()
