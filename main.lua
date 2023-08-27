@@ -33,10 +33,11 @@ end
 
 function love.load()
   primaryFontSrc = 'assets/fonts/oswald-regular.ttf'
+  titleFontScr = 'assets/fonts/20db.otf'
   keyboardFontSrc = 'assets/fonts/alpha-echo.ttf'
 
   Gamestate.registerEvents()
-  Gamestate.switch(states.gameLevel)
+  Gamestate.switch(states.title)
 end
 
 function love.update()

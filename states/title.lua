@@ -57,7 +57,7 @@ function states.title:enter()
 
   titleActions = {
     function()
-      Gamestate.switch(states.gamePuzzle)
+      Gamestate.switch(states.gameLevel)
     end,
     function()
       Gamestate.switch(states.credits)
@@ -67,7 +67,7 @@ function states.title:enter()
     end
   }
 
-  titleFont = love.graphics.newFont(primaryFontSrc, 96)
+  titleFont = love.graphics.newFont(titleFontScr, 128)
   optionFont = love.graphics.newFont(primaryFontSrc, 48)
   footerFont = love.graphics.newFont(primaryFontSrc, 24)
 
@@ -86,7 +86,7 @@ function states.title:draw()
 
   love.graphics.setColor(1, 1, 1, titleOpacity)
   love.graphics.setFont(titleFont)
-  love.graphics.printf('Elo', 0, 106, width, 'center')
+  love.graphics.printf('ELO', 0, 106, width, 'center')
 
   for i, option in ipairs(titleOptions) do
     if i == titleSelected then

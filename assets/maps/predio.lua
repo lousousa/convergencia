@@ -9,8 +9,8 @@ return {
   height = 40,
   tilewidth = 128,
   tileheight = 128,
-  nextlayerid = 7,
-  nextobjectid = 27,
+  nextlayerid = 8,
+  nextobjectid = 33,
   properties = {},
   tilesets = {
     {
@@ -274,6 +274,35 @@ return {
           y = 896,
           width = 64,
           height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 7,
+      name = "trigger-portao",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 32,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 2346,
+          y = 624,
+          width = 308,
+          height = 22,
           rotation = 0,
           visible = true,
           properties = {}
