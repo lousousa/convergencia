@@ -74,6 +74,8 @@ function states.title:enter()
   titleSound = love.audio.newSource('assets/sounds/load.wav', 'static')
   optionSound = love.audio.newSource('assets/sounds/misc_menu.wav', 'static')
 
+  titleBackground = love.graphics.newImage('assets/images/arte-titulo.jpg')
+
   titleSound:play()
 
   titleOpacity = 0
@@ -85,6 +87,7 @@ function states.title:draw()
   local width = love.graphics.getWidth()
 
   love.graphics.setColor(1, 1, 1, titleOpacity)
+  love.graphics.draw(titleBackground)
   love.graphics.setFont(titleFont)
   love.graphics.printf('ELO', 0, 106, width, 'center')
 
