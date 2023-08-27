@@ -37,6 +37,7 @@ function Dialog:update(dt)
 end
 
 function Dialog:show(message, time, position)
+  Timer.clear()
   DIALOG_MESSAGE = message
   self.messageLength = #message
   self.cursor = 0

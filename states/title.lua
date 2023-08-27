@@ -51,6 +51,7 @@ local function handleInput()
 end
 
 function states.title:enter()
+  Timer.clear()
   titleOptions = { 'Iniciar', 'Créditos', 'Sair' }
 
   titleSelected = 1

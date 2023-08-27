@@ -21,10 +21,14 @@ require('states/game/end')
 
 local function handleInput()
   if Input:pressed 'quit' then
-    if Gamestate.current().name == 'title'
-      -- or Gamestate.current().name == 'gamePuzzle'
-      -- or Gamestate.current().name == 'gameLevel'
+    if
+      Gamestate.current().name == 'gamePuzzle' or
+      Gamestate.current().name == 'gameLevel'
     then
+      do return end
+    end
+
+    if Gamestate.current().name == 'title' then
       love.event.quit()
     else
       musicManager:stopAll()
