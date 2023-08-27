@@ -10,7 +10,7 @@ function states.gameEnd:draw()
 
   messageFont = love.graphics.newFont(primaryFontSrc, 48)
   love.graphics.setFont(messageFont)
-  love.graphics.printf('Parabéns,\nvc resolveu o enigma!', 0, height / 2 - 72, width, 'center')
+  love.graphics.printf('Parabéns,\nvocê resolveu o enigma!', 0, height / 2 - 72, width, 'center')
 end
 
 function states.gameEnd:update()

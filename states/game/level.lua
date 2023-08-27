@@ -80,6 +80,20 @@ function states.gameLevel:enter()
   end
 
   GAME_IS_READY = true
+
+  mapW = map.width * map.tilewidth
+  mapH = map.height * map.tileheight
+
+  local boundaries = {
+    world:newRectangleCollider(0, -2, mapW, 1),
+    world:newRectangleCollider(mapW + 1, 0, 1, mapH),
+    world:newRectangleCollider(0, mapH + 1, mapW, 1),
+    world:newRectangleCollider(-2, 0, 1, mapH)
+  }
+
+  for _, boundary in ipairs(boundaries) do
+    boundary:setType('static')
+  end
 end
 
 function states.gameLevel:draw()
@@ -114,8 +128,6 @@ function states.gameLevel:update(dt)
 
   local w = love.graphics.getWidth()
   local h = love.graphics.getHeight()
-  local mapW = map.width * map.tilewidth
-  local mapH = map.height * map.tileheight
 
   -- top
   if camera.y <= h/2 then
