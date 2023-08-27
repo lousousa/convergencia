@@ -96,6 +96,9 @@ function states.gameLevel:enter()
   for _, boundary in ipairs(boundaries) do
     boundary:setType('static')
   end
+
+  music = love.audio.newSource('assets/music/mysterious-ambiance.mp3', 'stream')
+  music:play()
 end
 
 function states.gameLevel:draw()
