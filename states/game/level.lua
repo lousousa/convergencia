@@ -92,6 +92,13 @@ function states.gameLevel:enter()
     boundary:setType('static')
   end
 
+  if map.layers['blocks'] then
+    for _, obj in pairs(map.layers['blocks'].objects) do
+      local block = world:newRectangleCollider(obj.x, obj.y, obj.width, obj.height)
+      block:setType('static')
+    end
+  end
+
   music = love.audio.newSource('assets/music/mysterious-ambiance.mp3', 'stream')
   music:play()
 end
@@ -99,6 +106,7 @@ end
 function states.gameLevel:draw()
   camera:attach()
     map:drawLayer(map.layers['layer1'])
+    map:drawLayer(map.layers['layer2'])
     checkpointController:draw()
 
     for _, controller in ipairs(allyControllers) do
