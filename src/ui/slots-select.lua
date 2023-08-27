@@ -7,6 +7,8 @@ function SlotsSelect:new(t)
   t.itemsScreenOffsetX = 232
   t.itemsFont = love.graphics.newFont(keyboardFontSrc, 32)
   t.cursorPosition = 1
+  t.moveSound = love.audio.newSource('assets/sounds/button02.flac', 'static')
+  t.selectSound = love.audio.newSource('assets/sounds/button01.flac', 'static')
 
   return t
 end
@@ -40,6 +42,9 @@ function SlotsSelect:draw()
 end
 
 function SlotsSelect:moveLeft()
+  self.moveSound:stop()
+  self.moveSound:play()
+
   if self.cursorPosition == 1 then
     self.cursorPosition = SLOTS_MAX_SIZE
     do return end
@@ -49,6 +54,9 @@ function SlotsSelect:moveLeft()
 end
 
 function SlotsSelect:moveRight()
+  self.moveSound:stop()
+  self.moveSound:play()
+
   if self.cursorPosition == SLOTS_MAX_SIZE then
     self.cursorPosition = 1
     do return end
@@ -58,6 +66,9 @@ function SlotsSelect:moveRight()
 end
 
 function SlotsSelect:selectItem()
+  self.selectSound:stop()
+  self.selectSound:play()
+
   if SLOTS[self.cursorPosition] == nil then
     do return end
   end
