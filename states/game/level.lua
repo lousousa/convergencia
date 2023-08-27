@@ -99,13 +99,13 @@ end
 function states.gameLevel:draw()
   camera:attach()
     map:drawLayer(map.layers['layer1'])
-
-    playerController:draw()
     checkpointController:draw()
 
     for _, controller in ipairs(allyControllers) do
       controller:draw()
     end
+
+    playerController:draw()
 
     -- world:draw()
   camera:detach()
@@ -123,7 +123,7 @@ function states.gameLevel:update(dt)
   end
 
   playerController.position.x = playerController.collider:getX()
-  playerController.position.y = playerController.collider:getY()
+  playerController.position.y = playerController.collider:getY() - playerController.height / 4
   camera:lookAt(playerController.position.x, playerController.position.y)
 
   local w = love.graphics.getWidth()
