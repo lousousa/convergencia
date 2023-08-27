@@ -31,7 +31,7 @@ function love.load()
   keyboardFontSrc = 'assets/fonts/alpha-echo.ttf'
 
   Gamestate.registerEvents()
-  Gamestate.switch(states.gameEnd)
+  Gamestate.switch(states.gameLevel)
 end
 
 function love.update()

@@ -103,6 +103,31 @@ function states.gameLevel:update(dt)
   playerController.position.y = playerController.collider:getY()
   camera:lookAt(playerController.position.x, playerController.position.y)
 
+  local w = love.graphics.getWidth()
+  local h = love.graphics.getHeight()
+  local mapW = map.width * map.tilewidth
+  local mapH = map.height * map.tileheight
+
+  -- top
+  if camera.y <= h/2 then
+    camera.y = h/2
+  end
+
+  -- right
+  if camera.x >= mapW - w/2 then
+    camera.x = mapW - w/2
+  end
+
+  -- bottom
+  if camera.y >= mapH - h/2 then
+    camera.y = mapH - h/2
+  end
+
+  -- left
+  if camera.x <= w/2 then
+    camera.x = w/2
+  end
+
   playerController:update(dt)
 
   world:update(dt)
