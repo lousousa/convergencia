@@ -34,7 +34,7 @@ function PlayerController:new(t)
     }
   }
 
-  t.animation = t.animations.walking.up
+  t.animation = t.animations.walking.down
 
   return t
 end

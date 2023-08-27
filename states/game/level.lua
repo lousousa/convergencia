@@ -1,6 +1,7 @@
 WF = require 'vendor/windfield'
 Camera = require 'vendor/camera'
 Anim8 = require 'vendor/anim8'
+STI = require 'vendor/sti'
 
 require 'src/ui/slots-thumbnails'
 
@@ -33,6 +34,7 @@ end
 function states.gameLevel:enter()
   world = WF.newWorld()
   camera = Camera()
+  map = STI('assets/maps/predio.lua')
 
   world:addCollisionClass('Player')
   world:addCollisionClass('Checkpoint')
@@ -40,19 +42,41 @@ function states.gameLevel:enter()
 
   slotsThumbnails = SlotsThumbnails:new{}
 
+  playerObj = map.layers['player'].objects[1]
+  PLAYER_SPAWN_POSITION.x = playerObj.x
+  PLAYER_SPAWN_POSITION.y = playerObj.y
   playerController = PlayerController:new{}
-  checkpointController = CheckpointController:new{}
-  allyControllers = {
-    AllyController:new{ idx = 1, position = { x = 500, y = 100 }, slots = { 'S', 'I' } },
-    AllyController:new{ idx = 2, position = { x = -100, y = -100 }, slots = { 'O', 'N', 'V' } },
-    AllyController:new{ idx = 3, position = { x = 500, y = 600 }, slots = { 'E', 'I', 'V' } },
-    AllyController:new{ idx = 4, position = { x = -100, y = 600 }, slots = { 'E', 'N' } },
-    AllyController:new{ idx = 5, position = { x = 200, y = 900 }, slots = { 'G', 'U', 'M' } }
+
+  checkpointObj = map.layers['checkpoint'].objects[1]
+  checkpointController = CheckpointController:new{
+    position = {
+      x = checkpointObj.x,
+      y = checkpointObj.y
+    }
   }
+
+  slotsByAlly = {
+    { 'S', 'I' },
+    { 'O', 'N', 'V' },
+    { 'E', 'I', 'V' },
+    { 'E', 'N' },
+    { 'G', 'U', 'M' }
+  }
+
+  allyControllers = {}
+
+  if map.layers['allies'] then
+    for i, obj in pairs(map.layers['allies'].objects) do
+      local ally = AllyController:new{ idx = i, position = { x = obj.x, y = obj.y }, slots = slotsByAlly[i] }
+      table.insert(allyControllers, ally)
+    end
+  end
 end
 
 function states.gameLevel:draw()
   camera:attach()
+    map:drawLayer(map.layers['layer1'])
+
     playerController:draw()
     checkpointController:draw()
 
@@ -60,7 +84,7 @@ function states.gameLevel:draw()
       controller:draw()
     end
 
-    world:draw()
+    -- world:draw()
   camera:detach()
 
   slotsThumbnails:draw()
