@@ -41,7 +41,7 @@ function love.load()
   musicManager = MusicManager:new{}
 
   Gamestate.registerEvents()
-  Gamestate.switch(states.gameLevel)
+  Gamestate.switch(states.splash)
 end
 
 function love.update()
