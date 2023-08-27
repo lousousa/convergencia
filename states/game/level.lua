@@ -32,6 +32,8 @@ function states.gameLevel:enter()
   camera = Camera()
   map = STI('assets/maps/predio.lua')
 
+  opacity = 0
+
   world:addCollisionClass('Player')
   world:addCollisionClass('Checkpoint')
   world:addCollisionClass('Ally')
@@ -105,12 +107,14 @@ function states.gameLevel:enter()
     end
   end
 
-  music = love.audio.newSource('assets/music/mysterious-ambiance.mp3', 'stream')
-  music:play()
-  music:setLooping(true)
+  musicManager:stopAll()
+  musicManager.list.mainTheme:play()
+  musicManager.list.mainTheme:setLooping(true)
 end
 
 function states.gameLevel:draw()
+  love.graphics.setColor(1, 1, 1, opacity)
+
   camera:attach()
     map:drawLayer(map.layers['layer1'])
     map:drawLayer(map.layers['layer2'])
@@ -132,6 +136,10 @@ function states.gameLevel:draw()
 end
 
 function states.gameLevel:update(dt)
+  if opacity < 1 then
+    opacity = opacity + .01
+  end
+
   handleInput()
 
   checkpointController:update()

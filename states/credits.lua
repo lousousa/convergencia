@@ -8,11 +8,15 @@ function states.credits:enter()
   creditsData = {
     {
       title = 'Emma Araripe',
-      subtitle = 'Artes e Beleza'
+      subtitle = 'Artes, Narrativa e Beleza'
     },
     {
       title = 'Luis Sousa',
       subtitle = 'Programação Voraz'
+    },
+    {
+      title = 'opengameart.org',
+      subtitle = 'Músicas e Sons'
     }
   }
 
@@ -39,6 +43,9 @@ function states.credits:enter()
 
   Timer.after(.5, function() isWaiting = false end)
   Timer.after(2.5, next)
+
+  musicManager:stopAll()
+  musicManager.list.credits:play()
 end
 
 function states.credits:draw()

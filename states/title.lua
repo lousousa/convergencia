@@ -76,6 +76,8 @@ function states.title:enter()
 
   titleBackground = love.graphics.newImage('assets/images/arte-titulo.jpg')
 
+  musicManager:stopAll()
+  musicManager.list.title:play()
   titleSound:play()
 
   titleOpacity = 0

@@ -38,6 +38,9 @@ function states.gameEnd:enter()
   end
 
   jump()
+
+  musicManager:stopAll()
+  musicManager.list.endGame:play()
 end
 
 function states.gameEnd:draw()
