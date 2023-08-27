@@ -24,6 +24,8 @@ function Slots:new(t)
 
   t.drawMessage = 0
 
+  t.successSound = love.audio.newSource('assets/sounds/blessing2.mp3', 'static')
+
   return t
 end
 
@@ -87,6 +89,7 @@ function Slots:addItem(item)
     local isSuccess = encoded == 'TklOR1VFTVZJVkVTTw=='
 
     if isSuccess then
+      self.successSound:play()
       self.drawMessage = 1
       self.isWaiting = true
       Timer.after(3, function() Gamestate.switch(states.gameEnd) end)

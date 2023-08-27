@@ -35,6 +35,8 @@ function AllyController:new(t)
 
   t.animation = t.animations.idle.damaged
 
+  t.stateChangeSound = love.audio.newSource('assets/sounds/moving.mp3', 'static')
+
   return t
 end
 
@@ -61,6 +63,7 @@ function AllyController:update()
       do return end
     end
 
+    self.stateChangeSound:play()
     ALLIES_STATE[self.idx] = 2
 
     for _, slot in ipairs(self.slots) do
