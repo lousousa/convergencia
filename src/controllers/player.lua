@@ -11,10 +11,12 @@ function PlayerController:new(t)
     y = PLAYER_SPAWN_POSITION.y
   }
 
-  t.collider = world:newCircleCollider(t.position.x, t.position.y, t.width / 4)
-  t.collider:setCollisionClass('Player')
-  t.collider:setLinearDamping(5)
-  t.collider:setFixedRotation(true)
+  if world then
+    t.collider = world:newCircleCollider(t.position.x, t.position.y, t.width / 4)
+    t.collider:setCollisionClass('Player')
+    t.collider:setLinearDamping(5)
+    t.collider:setFixedRotation(true)
+  end
 
   t.spriteSheet = love.graphics.newImage("assets/images/game/character-player-2x.png")
 

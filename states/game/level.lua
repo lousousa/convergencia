@@ -1,8 +1,3 @@
-WF = require 'vendor/windfield'
-Camera = require 'vendor/camera'
-Anim8 = require 'vendor/anim8'
-STI = require 'vendor/sti'
-
 require 'src/ui/slots-thumbnails'
 require 'src/ui/dialog'
 

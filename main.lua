@@ -1,5 +1,10 @@
 Timer = require 'vendor/hump/timer'
 Gamestate = require 'vendor/hump/gamestate'
+WF = require 'vendor/windfield'
+Camera = require 'vendor/camera'
+Anim8 = require 'vendor/anim8'
+STI = require 'vendor/sti'
+Flux = require 'vendor/flux'
 
 require('input')
 

@@ -11,9 +11,11 @@ function AllyController:new(t)
     ALLIES_STATE[t.idx] = 1
   end
 
-  t.collider = world:newCircleCollider(t.position.x + t.width / 4, t.position.y + t.height / 2, t.width / 4)
-  t.collider:setCollisionClass('Ally')
-  t.collider:setType('static')
+  if world then
+    t.collider = world:newCircleCollider(t.position.x + t.width / 4, t.position.y + t.height / 2, t.width / 4)
+    t.collider:setCollisionClass('Ally')
+    t.collider:setType('static')
+  end
 
   t.spriteSheet = love.graphics.newImage("assets/images/game/character-ally.png")
 

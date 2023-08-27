@@ -89,7 +89,7 @@ function Slots:addItem(item)
     if isSuccess then
       self.drawMessage = 1
       self.isWaiting = true
-      Timer.after(2, function() Gamestate.switch(states.gameEnd) end)
+      Timer.after(3, function() Gamestate.switch(states.gameEnd) end)
       do return end
     end
 
