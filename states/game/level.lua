@@ -4,6 +4,7 @@ Anim8 = require 'vendor/anim8'
 STI = require 'vendor/sti'
 
 require 'src/ui/slots-thumbnails'
+require 'src/ui/dialog'
 
 require 'src/controllers/player'
 require 'src/controllers/checkpoint'
@@ -41,6 +42,7 @@ function states.gameLevel:enter()
   world:addCollisionClass('Ally')
 
   slotsThumbnails = SlotsThumbnails:new{}
+  dialog = Dialog:new{}
 
   playerObj = map.layers['player'].objects[1]
 
@@ -106,6 +108,7 @@ function states.gameLevel:draw()
     end
 
     playerController:draw()
+    dialog:draw()
 
     -- world:draw()
   camera:detach()
@@ -117,6 +120,7 @@ function states.gameLevel:update(dt)
   handleInput()
 
   checkpointController:update()
+  dialog:update(dt)
 
   for _, controller in ipairs(allyControllers) do
     controller:update()

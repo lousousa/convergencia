@@ -64,5 +64,8 @@ function AllyController:update()
     for _, slot in ipairs(self.slots) do
       table.insert(SLOTS, { value = slot, inUsed = false })
     end
+
+    local message = 'Você me consertou! Receba essas LETRAS DO TECLADO em agradecimento.'
+    dialog:show(message, 4, { x = self.position.x, y = self.position.y - 100 })
   end
 end

@@ -40,6 +40,7 @@ end
 
 function states.splash:update(dt)
   Timer.update(dt)
+
   if isEntering == false then
     if isExiting then
       contentFadeOut()
