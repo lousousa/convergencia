@@ -1,7 +1,7 @@
 return {
-  version = "1.9",
+  version = "1.10",
   luaversion = "5.1",
-  tiledversion = "1.9.2",
+  tiledversion = "1.10.2",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -40,6 +40,64 @@ return {
       properties = {},
       wangsets = {},
       tilecount = 1,
+      tiles = {}
+    },
+    {
+      name = "tileset-esgotos",
+      firstgid = 2,
+      class = "",
+      tilewidth = 128,
+      tileheight = 128,
+      spacing = 0,
+      margin = 0,
+      columns = 3,
+      image = "../images/game/tileset-esgotos.png",
+      imagewidth = 389,
+      imageheight = 384,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 128,
+        height = 128
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 9,
+      tiles = {}
+    },
+    {
+      name = "tileset-parede",
+      firstgid = 11,
+      class = "",
+      tilewidth = 128,
+      tileheight = 128,
+      spacing = 0,
+      margin = 0,
+      columns = 4,
+      image = "../images/game/tileset-parede.png",
+      imagewidth = 512,
+      imageheight = 256,
+      objectalignment = "unspecified",
+      tilerendersize = "tile",
+      fillmode = "stretch",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 128,
+        height = 128
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 8,
       tiles = {}
     }
   },
@@ -121,7 +179,7 @@ return {
         {
           id = 17,
           name = "player",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 2176,
           y = 384,
@@ -150,25 +208,12 @@ return {
         {
           id = 18,
           name = "checkpoint",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 2688,
           y = 0,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 19,
-          name = "",
-          class = "",
-          shape = "rectangle",
-          x = -288,
-          y = 272,
-          width = 0,
-          height = 0,
+          width = 128,
+          height = 128,
           rotation = 0,
           visible = true,
           properties = {}
@@ -192,7 +237,7 @@ return {
         {
           id = 9,
           name = "ally",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 1024,
           y = 896,
@@ -205,7 +250,7 @@ return {
         {
           id = 11,
           name = "ally",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 3712,
           y = 896,
@@ -218,7 +263,7 @@ return {
         {
           id = 12,
           name = "ally",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 3840,
           y = 3712,
@@ -231,7 +276,7 @@ return {
         {
           id = 13,
           name = "ally",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 256,
           y = 4736,
@@ -244,7 +289,7 @@ return {
         {
           id = 16,
           name = "ally",
-          class = "",
+          type = "",
           shape = "rectangle",
           x = 1664,
           y = 2816,

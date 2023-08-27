@@ -4,8 +4,10 @@ function CheckpointController:new(t)
   setmetatable(t, self)
   self.__index = self
 
-  t.width = 64
-  t.height = 64
+  t.width = 128
+  t.height = 128
+
+  t.image = love.graphics.newImage('assets/images/game/checkpoint.png')
 
   t.collider = world:newRectangleCollider(t.position.x, t.position.y, t.width, t.height)
   t.collider:setCollisionClass('Checkpoint')
@@ -15,10 +17,8 @@ function CheckpointController:new(t)
 end
 
 function CheckpointController:draw()
-  love.graphics.setColor(1, 0, 0)
-  love.graphics.rectangle('fill', self.position.x, self.position.y, self.width, self.height)
-
   love.graphics.setColor(1, 1, 1)
+  love.graphics.draw(self.image, self.position.x, self.position.y)
 end
 
 function CheckpointController:update()
@@ -27,8 +27,8 @@ function CheckpointController:update()
       item.isUsed = false
     end
 
-    PLAYER_SPAWN_POSITION.x = CHECKPOINT_POSITION.x + 32
-    PLAYER_SPAWN_POSITION.y = CHECKPOINT_POSITION.y + 128
+    PLAYER_SPAWN_POSITION.x = CHECKPOINT_POSITION.x + 64
+    PLAYER_SPAWN_POSITION.y = CHECKPOINT_POSITION.y + 192
 
     Gamestate.switch(states.gamePuzzle)
   end

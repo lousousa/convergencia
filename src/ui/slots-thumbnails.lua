@@ -18,8 +18,8 @@ function SlotsThumbnails:draw()
       mode = 'fill'
     end
 
-    love.graphics.circle(mode, self.thumbsScreenOffsetX + (24 + 16) * (i - 1) + 12, 52, 12)
+    love.graphics.circle(mode, self.thumbsScreenOffsetX + (24 + 16) * (i - 1) + 12, 672, 12)
   end
 
-  love.graphics.rectangle('line', 371, 24, 538, 56, 24, 24)
+  love.graphics.rectangle('line', 371, 644, 538, 56, 24, 24)
 end
