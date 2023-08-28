@@ -4,4 +4,4 @@
 
 ## Sobre
 
-Este jogo foi idealizado e produzido no prazo de 48 horas durante a PiauIndie Game Jam 2023.
+Este jogo foi idealizado e produzido no prazo de 48 horas durante a [PiauIndie Game Jam 2023](https://itch.io/jam/piauindie-game-jam-2023/entries).
