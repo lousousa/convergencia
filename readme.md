@@ -1,6 +1,6 @@
 # Elo
 
-<p align="center"><img src="https://github.com/lousousa/elo-game/assets/2921281/578754ec-b97f-4772-8b14-5e0f7dd4de19"/></p>
+<p align="center"><img src="https://github.com/lousousa/elo-game/assets/2921281/bdde8b14-58b3-4e7e-b036-a1fd10f46765"/></p>
 
 ## Sobre
 
