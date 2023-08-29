@@ -11,6 +11,11 @@ end
 
 function SlotsInstructions:draw()
   love.graphics.setFont(self.instructionsFont)
-  local message = '< > : para mover\nSPACE: para selecionar\nJ: para reiniciar\nK: para voltar'
+  local message = '< > : mover\nSPACE: selecionar\nJ: reiniciar\nK: voltar'
+
+  if love.joystick.getJoystickCount() > 0 then
+    message = '< > : mover\nB: selecionar\nX: reiniciar\nA: voltar'
+  end
+
   love.graphics.printf(message, 901, 555, 200, 'right')
 end

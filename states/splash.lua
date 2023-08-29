@@ -11,7 +11,12 @@ local function contentFadeOut()
 end
 
 local function handleInput()
-  if Input:pressed 'start' or Input:pressed 'action1' then
+  if
+    Input:pressed 'start' or
+    Input:pressed 'action1' or
+    Input:pressed 'action2' or
+    Input:pressed 'action3'
+  then
     Gamestate.switch(states.title)
   end
 end

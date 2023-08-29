@@ -2,14 +2,15 @@ Baton = require 'vendor/baton'
 
 Input = Baton.new {
   controls = {
-    up = { 'key:up', 'key:w' },
-    right = { 'key:right', 'key:d' },
-    down = { 'key:down', 'key:s' },
-    left = { 'key:left', 'key:a' },
-    action1 = { 'key:space', 'key:l' },
-    action2 = { 'key:k' },
-    action3 = { 'key:j' },
-    start = { 'key:return' },
+    up = { 'key:up', 'key:w', 'axis:lefty-', 'button:dpup' },
+    right = { 'key:right', 'key:d', 'axis:leftx+', 'button:dpright' },
+    down = { 'key:down', 'key:s', 'axis:lefty+', 'button:dpdown' },
+    left = { 'key:left', 'key:a', 'axis:leftx-', 'button:dpleft' },
+    action1 = { 'key:space', 'key:l', 'button:b' },
+    action2 = { 'key:k', 'button:a' },
+    action3 = { 'key:j', 'button:x' },
+    start = { 'key:return', 'button:start' },
     quit = { 'key:escape' }
-  }
+  },
+  joystick = love.joystick.getJoysticks()[1]
 }
