@@ -14,7 +14,7 @@ function SlotsInstructions:draw()
   local message = '< > : mover\nSPACE: selecionar\nJ: reiniciar\nK: voltar'
 
   if love.joystick.getJoystickCount() > 0 then
-    message = '< > : mover\nB: selecionar\nX: reiniciar\nA: voltar'
+    message = '< > : mover\nA: selecionar\nX: reiniciar\nB: voltar'
   end
 
   love.graphics.printf(message, 901, 555, 200, 'right')
